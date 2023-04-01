@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('movie_id')->constrained();
+            $table->string('body');
+            $table->string('image');
             $table->timestamps();
         });
     }
