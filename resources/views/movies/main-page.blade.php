@@ -6,8 +6,8 @@
             <img src="{{ $quote->image }}" alt="{{ $quote->id }}" />
         </div>
         <p class="text-5xl mt-65 mb-114 text-white">"{{ $quote->body }}"</p>
-        <a href="{{ route('movie.get', ['movie' => $quote->movies->id]) }}"
-            class="text-5xl text-white underline">{{ $quote->movies->title }}</a>
+        <a href="{{ route('movie.get', ['movie' => $quote->movie->id]) }}"
+            class="text-5xl text-white underline">{{ $quote->movie->title }}</a>
     </div>
 
 </x-layout>

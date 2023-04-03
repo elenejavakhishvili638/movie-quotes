@@ -11,7 +11,7 @@ class Quote extends Model
 
     protected $guarded = [];
 
-    public function movies()
+    public function movie()
     {
         return $this->belongsTo(Movie::class, 'movie_id');
     }

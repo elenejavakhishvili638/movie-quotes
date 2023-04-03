@@ -6,14 +6,28 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
+    padding: {
+      '34': '34px',
+      '45': '45px',
+     
+    },
     margin:{
       '13.5': '54px',
       '3.75': '15px',
       '65': '65px',
       '114': '114px',
+      '79': '79px',
+      '82': '82px',
+      '67': '67px',
+      '18': '18px'
     },
     backgroundImage: {
       'gradient': 'radial-gradient(50% 50% at 50% 50%, #4E4E4E 0%, #3D3B3B 99.99%, #3D3B3B 100%)',
+    },
+    backgroundColor: {
+      'primary': '#867070',
+      'secondary': '#D5B4B4',
+
     },
     extend: {
       height: {
