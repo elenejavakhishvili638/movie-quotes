@@ -7,4 +7,10 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
+    public function get(Movie $movie)
+    {
+        return view('movies.list-page', [
+            'movie' => $movie
+        ]);
+    }
 }
