@@ -15,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [QuoteController::class, 'index']);
+Route::get('/', [QuoteController::class, 'get']);
+
+Route::get('movie/{movie}', [MovieController::class, 'get'])->name('movie.get');
