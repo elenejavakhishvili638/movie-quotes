@@ -10,4 +10,9 @@ class SessionController extends Controller
     {
         return view('sessions.create');
     }
+
+    public function store()
+    {
+        return redirect('admin/movies');
+    }
 }
