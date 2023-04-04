@@ -26,9 +26,14 @@ Route::get('/', [QuoteController::class, 'get']);
 Route::get('movie/{movie}', [MovieController::class, 'get'])->name('movie.get');
 
 
-Route::get('login', [AuthController::class, 'create']);
-Route::post('login', [AuthController::class, 'store']);
+Route::get('login', [AuthController::class, 'create'])->middleware(['can:admin']);
+Route::post('login', [AuthController::class, 'store'])->middleware(['can:admin']);
 
 
-Route::get('admin/movies', [AdminMovieController::class, 'index'])->middleware(['can:admin']);
-Route::delete('admin/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destory')->middleware(['can:admin']);
+Route::middleware(['can:admin'])->group(function () {
+
+    Route::get('admin/movies', [AdminMovieController::class, 'index']);
+    Route::delete('admin/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destory');
+    Route::get('admin/movie/create', [AdminMovieController::class, 'create'])->name('movie.create');
+    Route::post('admin/movie', [AdminMovieController::class, 'store'])->name('movie.store');
+});

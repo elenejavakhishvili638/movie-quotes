@@ -21,4 +21,9 @@ class AdminMovieController extends Controller
         $movie->delete();
         return back();
     }
+
+    public function create()
+    {
+        return view('admin.movies.create');
+    }
 }

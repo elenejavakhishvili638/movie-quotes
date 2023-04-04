@@ -4,7 +4,8 @@
     <div class="w-800 text-2xl flex flex-col h-screen mt-114">
         <div class="flex justify-between">
             <div class="mb-82">
-                <a href="#" class="bg-brown text-white py-4 text-2xl px-6 rounded-md hover:bg-secondary ">Add a
+                <a href="{{ route('movie.create') }}"
+                    class="bg-brown text-white py-4 text-2xl px-6 rounded-md hover:bg-secondary ">Add a
                     new
                     movie</a>
             </div>
@@ -23,14 +24,12 @@
                     </p>
                 </div>
                 <div class="w-1/4 p-8 text-center bg-gray-200 border-l">
-                    <a href="/admin/movies/{{ $movie->id }}/edit"
-                        class="text-2xl text-blue-500 hover:text-blue-600">Edit
+                    <a href="#" class="text-2xl text-blue-500 hover:text-blue-600">Edit
                     </a>
                 </div>
                 <div class="w-1/4 p-8 text-center bg-gray-200 border-l">
 
-                    <form method="POST" {{-- action="/admin/movies/{{ $movie->id }}" --}}
-                        action="{{ route('movie.destory', ['movie' => $movie->id]) }}">
+                    <form method="POST" action="{{ route('movie.destory', ['movie' => $movie->id]) }}">
                         @csrf
                         @method('DELETE')
 
