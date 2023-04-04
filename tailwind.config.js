@@ -9,7 +9,10 @@ module.exports = {
     padding: {
       '34': '34px',
       '45': '45px',
-     
+      '4': '16px',
+      '12': '48px',
+      '6': '24px',
+      '8': '32px',
     },
     margin:{
       '13.5': '54px',
@@ -19,8 +22,15 @@ module.exports = {
       '79': '79px',
       '82': '82px',
       '67': '67px',
-      '18': '18px'
+      '18': '18px',
+      '6': '24px',
+      '8': '32px',
     },
+    colors: {
+      'gray': '#867070',
+      'primary': '#867070',
+    },
+
     backgroundImage: {
       'gradient': 'radial-gradient(50% 50% at 50% 50%, #4E4E4E 0%, #3D3B3B 99.99%, #3D3B3B 100%)',
     },
