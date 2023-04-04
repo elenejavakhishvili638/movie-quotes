@@ -16,12 +16,19 @@
                         <input id="email-address" name="email" type="email" autocomplete="email" required
                             class="relative block w-full rounded-t-md border-0 p-5 text-gray-900 ring-1 ring-inset ring-primary placeholder:text-gray-400 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                             placeholder="Email address" />
+
+                        @error('email')
+                            <p class="text-red-500 text-2xl mt-2 mb-2">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div>
                         <label for="password" class="sr-only">Password</label>
                         <input id="password" name="password" type="password" autocomplete="current-password" required
                             class="relative block w-full rounded-b-md border-0 p-5 text-gray-900 ring-1 ring-inset ring-primary placeholder:text-gray-400 placeholder:text-lg  focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 focus:outline-none"
                             placeholder="Password">
+                        @error('password')
+                            <p class="text-red-500 text-2xl mt-2 mb-2">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div>
