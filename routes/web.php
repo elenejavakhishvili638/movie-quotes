@@ -30,4 +30,5 @@ Route::get('login', [AuthController::class, 'create']);
 Route::post('login', [AuthController::class, 'store']);
 
 
-Route::get('admin/movies', [AdminMovieController::class, 'index'])->name('admin.index')->middleware(['can:admin']);
+Route::get('admin/movies', [AdminMovieController::class, 'index'])->middleware(['can:admin']);
+Route::delete('admin/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destory')->middleware(['can:admin']);

@@ -15,4 +15,10 @@ class AdminMovieController extends Controller
             'movies' => Movie::latest()->paginate(8)
         ]);
     }
+
+    public function destroy(Movie $movie)
+    {
+        $movie->delete();
+        return back();
+    }
 }

@@ -29,7 +29,8 @@
                 </div>
                 <div class="w-1/4 p-8 text-center bg-gray-200 border-l">
 
-                    <form method="POST" action="/admin/movies/{{ $movie->id }}">
+                    <form method="POST" {{-- action="/admin/movies/{{ $movie->id }}" --}}
+                        action="{{ route('movie.destory', ['movie' => $movie->id]) }}">
                         @csrf
                         @method('DELETE')
 
