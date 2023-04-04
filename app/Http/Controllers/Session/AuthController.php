@@ -17,11 +17,6 @@ class AuthController extends Controller
     public function store(StoreAuthRequest $request)
     {
 
-        // $attributes = request()->validate([
-        //     'email' => ['required', 'email'],
-        //     'password' => ['required']
-        // ]);
-
         $attributes = $request->validated();
 
         if (!auth()->attempt($attributes)) {
