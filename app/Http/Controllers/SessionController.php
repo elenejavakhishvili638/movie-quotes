@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class SessionController extends Controller
 {
@@ -14,10 +15,14 @@ class SessionController extends Controller
     public function store()
     {
 
-        request()->validate([
+        $attributes = request()->validate([
             'email' => ['required', 'email'],
             'password' => ['required']
         ]);
+
+        if (!auth()->attempt($attributes)) {
+            abort(Response::HTTP_FORBIDDEN);
+        }
 
         return redirect('admin/movies');
     }

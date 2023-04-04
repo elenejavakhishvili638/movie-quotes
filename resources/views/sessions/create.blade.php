@@ -7,7 +7,7 @@
                     Sign in to your account!
                 </h2>
             </div>
-            <form class="mt-8 space-y-6" action="#" method="POST">
+            <form class="mt-8 space-y-6" action="/login" method="POST">
                 @csrf
                 <input type="hidden" name="remeber" value="true" />
                 <div class="-space-y-px rounded-md shadow-sm">
