@@ -1,24 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Session;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreAuthRequest;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SessionController extends Controller
+class AuthController extends Controller
 {
     public function create()
     {
         return view('sessions.create');
     }
 
-    public function store()
+    public function store(StoreAuthRequest $request)
     {
 
-        $attributes = request()->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required']
-        ]);
+        $attributes = $request->validated();
 
         if (!auth()->attempt($attributes)) {
             abort(Response::HTTP_FORBIDDEN);
