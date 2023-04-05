@@ -1,7 +1,7 @@
 <x-layout>
     @include('movies._translate-buttons')
 
-    <div class="w-screen ml-18 mr-18 text-2xl flex flex-col h-screen mt-114">
+    <div class="w-800 ml-18 mr-18 text-2xl flex flex-col h-screen mt-114">
         <div>
             <a href="/dashboard"
                 class="mb-6 p-5 justify-center rounded-md bg-primary px-12 font-semibold text-2xl text-white hover:bg-secondary">Back</a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreQuoteRequest;
+use App\Http\Requests\UpdateQuoteRequest;
 use App\Models\Movie;
 use App\Models\Quote;
 use Illuminate\View\View;
@@ -38,7 +39,7 @@ class QuoteController extends Controller
 
         Quote::create($attributes);
 
-        return redirect('admin/quotes');
+        return redirect()->route('quotes.show');
     }
 
     public function destroy(Quote $quote): RedirectResponse
@@ -51,5 +52,22 @@ class QuoteController extends Controller
     public function edit(Quote $quote): View
     {
         return view('admin.quotes.edit', ['quote' => $quote, 'movies' => Movie::all()]);
+    }
+
+
+
+    public function update(UpdateQuoteRequest $request, Quote $quote): RedirectResponse
+    {
+
+        // ddd(request()->all());
+
+
+        $attributes = $request->validated();
+
+        $attributes['image'] = request()->file('image')->store('images');
+
+        $quote->update($attributes);
+
+        return redirect()->route('quotes.show');
     }
 }

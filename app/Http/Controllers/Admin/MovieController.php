@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMovieRequest;
+use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -44,7 +45,7 @@ class MovieController extends Controller
         return view('admin.movies.edit', ['movie' => $movie]);
     }
 
-    public function update(StoreMovieRequest $request, Movie $movie): RedirectResponse
+    public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
     {
         $attributes = $request->validated();
 

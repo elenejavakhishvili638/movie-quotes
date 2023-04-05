@@ -7,7 +7,8 @@
         </div>
 
         <div class="border p-8">
-            <form method="POST" action="/admin/quotes/{{ $quote->id }}" class="flex flex-col gap-6">
+            <form method="POST" action="{{ route('quote.update', ['quote' => $quote->id]) }}" class="flex flex-col gap-6"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="flex flex-col">
@@ -30,6 +31,10 @@
                         @error('image')
                             <p class="text-red-500 text-2xl mt-2"> {{ $message }}</p>
                         @enderror
+
+                        <div class="border p-4 h-32 w-32">
+                            <img class="object-contain h-24 w-24" src="/storage/{{ $quote->image }}" />
+                        </div>
                     </div>
                     <div class="flex flex-col">
                         <label class="text-2xl mb-2 text-white" for="movie_id">movie</label>
@@ -48,13 +53,13 @@
                         @enderror
                     </div>
                 </div>
+                <button
+                    class="group flex w-full justify-center rounded-md bg-primary px-3 py-2 text-2xl text-white hover:bg-secondary">
+                    Update
+                </button>
             </form>
         </div>
-        <button
-            class="group flex w-full justify-center rounded-md bg-primary px-3 py-2 text-2xl text-white hover:bg-secondary">
-            Update
-        </button>
-        </form>
+
     </div>
 
     </div>
