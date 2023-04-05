@@ -5,7 +5,7 @@
 
 // use App\Http\Controllers\AdminMovieController;
 
-use App\Http\Controllers\Admin\AdminMovieController;
+use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\Session\AuthController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\QuoteController;
@@ -26,8 +26,8 @@ Route::get('/', [QuoteController::class, 'get']);
 Route::get('movie/{movie}', [MovieController::class, 'get'])->name('movie.get');
 
 
-Route::get('login', [AuthController::class, 'create'])->middleware(['can:admin']);
-Route::post('login', [AuthController::class, 'store'])->middleware(['can:admin']);
+Route::get('login', [AuthController::class, 'create']);
+Route::post('login', [AuthController::class, 'store']);
 
 
 Route::middleware(['can:admin'])->group(function () {

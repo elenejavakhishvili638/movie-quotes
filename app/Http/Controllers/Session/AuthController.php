@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Session;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAuthRequest;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,7 +14,7 @@ class AuthController extends Controller
         return view('sessions.create');
     }
 
-    public function store(StoreAuthRequest $request)
+    public function store(LoginRequest $request)
     {
 
         $attributes = $request->validated();
