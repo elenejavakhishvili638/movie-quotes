@@ -41,9 +41,10 @@ Route::middleware(['can:admin'])->group(function () {
     Route::delete('admin/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destroy');
 
     Route::get('admin/movie/create', [AdminMovieController::class, 'create'])->name('movie.create');
-
     Route::post('admin/movie', [AdminMovieController::class, 'store'])->name('movie.store');
 
+    Route::get('admin/movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movie.edit');
+    Route::patch('admin/movies/{movie}', [AdminMovieController::class, 'update'])->name('movie.update');
 
 
     Route::get('admin/quotes', [AdminQuoteController::class, 'index'])->name('quotes.show');

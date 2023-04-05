@@ -37,4 +37,10 @@ class MovieController extends Controller
 
         return redirect('admin/movies');
     }
+
+
+    public function edit(Movie $movie)
+    {
+        return view('admin.movies.edit', ['movie' => $movie]);
+    }
 }
