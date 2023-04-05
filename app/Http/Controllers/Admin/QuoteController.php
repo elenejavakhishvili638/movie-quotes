@@ -28,10 +28,13 @@ class QuoteController extends Controller
         ]);
     }
 
-    public function store(StoreQuoteRequest $request): RedirectResponse
+    public function store(StoreQuoteRequest $request)
     {
-        // ddd(request()->all());
+        // $path = request()->file('image')->store('images');
+        // return "done:" . $path;
         $attributes = $request->validated();
+
+        $attributes['image'] = request()->file('image')->store('images');
 
         Quote::create($attributes);
 
