@@ -28,8 +28,8 @@ Route::get('movie/{movie}', [MovieController::class, 'get'])->name('movie.get');
 
 
 Route::get('login', [AuthController::class, 'create']);
-Route::post('login', [AuthController::class, 'store']);
-Route::post('logout', [AuthController::class, 'destroy'])->middleware('auth');
+Route::post('login', [AuthController::class, 'login']);
+Route::post('logout', [AuthController::class, 'logout'])->middleware('auth');
 
 
 

@@ -17,7 +17,7 @@ class AuthController extends Controller
     }
 
 
-    public function store(LoginRequest $request): RedirectResponse
+    public function login(LoginRequest $request): RedirectResponse
     {
 
         $attributes = $request->validated();
@@ -29,7 +29,7 @@ class AuthController extends Controller
         return redirect('dashboard');
     }
 
-    public function destroy(): RedirectResponse
+    public function logout(): RedirectResponse
     {
         auth()->logout();
 
