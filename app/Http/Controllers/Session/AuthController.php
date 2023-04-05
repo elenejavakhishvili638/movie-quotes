@@ -3,18 +3,21 @@
 namespace App\Http\Controllers\Session;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAuthRequest;
+use App\Http\Requests\LoginRequest;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-    public function create()
+    public function create(): View
     {
         return view('sessions.create');
     }
 
-    public function store(StoreAuthRequest $request)
+
+    public function store(LoginRequest $request): RedirectResponse
     {
 
         $attributes = $request->validated();
@@ -23,6 +26,13 @@ class AuthController extends Controller
             abort(Response::HTTP_FORBIDDEN);
         }
 
-        return redirect('admin/movies');
+        return redirect('dashboard');
+    }
+
+    public function destroy(): RedirectResponse
+    {
+        auth()->logout();
+
+        return redirect("/");
     }
 }
