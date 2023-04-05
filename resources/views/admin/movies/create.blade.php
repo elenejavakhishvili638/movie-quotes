@@ -6,8 +6,7 @@
                 class="mb-6 p-5 justify-center rounded-md bg-primary px-12 font-semibold text-2xl text-white hover:bg-secondary">Back</a>
         </div>
         <div class="border p-8">
-            <form class="flex flex-col gap-6" method="POST" action="{{ route('movie.store') }}"
-                enctype="multipart/form-data">
+            <form class="flex flex-col gap-6" method="POST" action="{{ route('movie.store') }}">
                 @csrf
                 <div class="flex flex-col">
                     <label class="text-2xl mb-2 text-white" for="title">Title</label>

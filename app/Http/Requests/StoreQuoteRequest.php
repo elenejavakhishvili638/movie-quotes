@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreMovieRequest extends FormRequest
+class StoreQuoteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,9 +22,11 @@ class StoreMovieRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'title' => ['required', 'unique:movies,title']
 
+        return [
+            'body' => 'required',
+            'image' =>  ['required', 'image'],
+            'movie_id' => ['required', Rule::exists('movies', 'id')]
             // 'published_at' => 'required'
         ];
     }

@@ -18,7 +18,8 @@
         <div>
 
             <div class="mb-82">
-                <a href="#" class="bg-brown text-white py-4 text-2xl px-6 rounded-md hover:bg-secondary ">Add a
+                <a href="{{ route('quote.create') }}"
+                    class="bg-brown text-white py-4 text-2xl px-6 rounded-md hover:bg-secondary ">Add a
                     new
                     Quote</a>
             </div>
