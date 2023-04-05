@@ -22,7 +22,7 @@
                 </div>
                 <div class="w-1/4 p-8 text-center bg-gray-200 border-l">
 
-                    <form method="POST" {{-- action="{{ route('movie.destory', ['quote' => $quote->id]) }}" --}}>
+                    <form method="POST" action="{{ route('quote.destroy', ['quote' => $quote->id]) }}}">
                         @csrf
                         @method('DELETE')
 

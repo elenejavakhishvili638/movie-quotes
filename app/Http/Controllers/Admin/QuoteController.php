@@ -37,4 +37,11 @@ class QuoteController extends Controller
 
         return redirect('admin/quotes');
     }
+
+    public function destroy(Quote $quote): RedirectResponse
+    {
+        $quote->delete();
+
+        return back();
+    }
 }
