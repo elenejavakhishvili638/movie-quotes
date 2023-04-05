@@ -16,7 +16,7 @@
                 <input
                     class="mb-6 flex w-full border-0 p-5 text-gray-900  placeholder:text-gray-400 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6 focus:outline-none"
                     id="{{ $movie->title }}" name="title" value="{{ old('title', $movie->title) }}" />
-                @error('title.en')
+                @error('title')
                     <p class="text-red-500 text-2xl mt-2"> {{ $message }}</p>
                 @enderror
                 <button

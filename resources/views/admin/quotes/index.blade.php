@@ -11,13 +11,14 @@
                 <div class="w-3/4 p-8  bg-gray-100 flex justify-between">
                     <div class=" mr-6">
                         <p class="">
-                            {{ uswords($quote->body) }}
+                            {{ ucwords($quote->body) }}
                         </p>
                     </div>
                     {{-- <img class="border h-14 w-14" src="{{ $quote->image }}" /> --}}
                 </div>
                 <div class="w-1/4 p-8 text-center bg-trans border-l">
-                    <a href="#" class="text-2xl text-blue-500 hover:text-blue-600">Edit
+                    <a href="{{ route('quote.edit', ['quote' => $quote]) }}"
+                        class="text-2xl text-blue-500 hover:text-blue-600">Edit
                     </a>
                 </div>
                 <div class="w-1/4 p-8 text-center bg-trans border-l">

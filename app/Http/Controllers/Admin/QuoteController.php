@@ -47,4 +47,9 @@ class QuoteController extends Controller
 
         return back();
     }
+
+    public function edit(Quote $quote): View
+    {
+        return view('admin.quotes.edit', ['quote' => $quote, 'movies' => Movie::all()]);
+    }
 }

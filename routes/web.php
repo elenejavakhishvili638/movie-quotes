@@ -49,9 +49,11 @@ Route::middleware(['can:admin'])->group(function () {
 
     Route::get('admin/quotes', [AdminQuoteController::class, 'index'])->name('quotes.show');
 
-    Route::get('admin/quote/create', [AdminQuoteController::class, 'create'])->name('quote.create');
+    Route::delete('admin/quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quote.destroy');
 
+    Route::get('admin/quote/create', [AdminQuoteController::class, 'create'])->name('quote.create');
     Route::post('admin/quote', [AdminQuoteController::class, 'store'])->name('quote.store');
 
-    Route::delete('admin/quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quote.destroy');
+    Route::get('admin/quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quote.edit');
+    Route::patch('admin/quotes/{quote}', [AdminQuoteController::class, 'update'])->name('quote.update');
 });
