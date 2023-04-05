@@ -2,7 +2,7 @@
     @include('movies._translate-buttons')
 
     <div class="w-800 text-2xl flex flex-col h-screen mt-114">
-        <div class="flex justify-between">
+        {{-- <div class="flex justify-between">
             <div class="mb-82">
                 <a href="{{ route('movie.create') }}"
                     class="bg-brown text-white py-4 text-2xl px-6 rounded-md hover:bg-secondary ">Add a
@@ -15,7 +15,7 @@
                     new
                     Quote</a>
             </div>
-        </div>
+        </div> --}}
         @foreach ($movies as $movie)
             <div class="flex border">
                 <div class="w-3/4 p-8  bg-gray-100">

@@ -28,10 +28,12 @@ Route::get('movie/{movie}', [MovieController::class, 'get'])->name('movie.get');
 
 Route::get('login', [AuthController::class, 'create']);
 Route::post('login', [AuthController::class, 'store']);
+Route::post('logout', [AuthController::class, 'destroy'])->middleware('auth');
+
 
 
 Route::middleware(['can:admin'])->group(function () {
-
+    Route::view('dashboard', 'dashboard');
     Route::get('admin/movies', [AdminMovieController::class, 'index']);
     Route::delete('admin/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destory');
     Route::get('admin/movie/create', [AdminMovieController::class, 'create'])->name('movie.create');

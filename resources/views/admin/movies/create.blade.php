@@ -2,7 +2,7 @@
     @include('movies._translate-buttons')
     <div class="w-800 flex flex-col gap-16">
         <div>
-            <a href="#"
+            <a href="/dashboard"
                 class="mb-6 p-5 justify-center rounded-md bg-primary px-12 font-semibold text-2xl text-white hover:bg-secondary">Back</a>
         </div>
         <div class="border p-8">

@@ -14,6 +14,7 @@ class AuthController extends Controller
         return view('sessions.create');
     }
 
+
     public function store(LoginRequest $request)
     {
 
@@ -23,6 +24,13 @@ class AuthController extends Controller
             abort(Response::HTTP_FORBIDDEN);
         }
 
-        return redirect('admin/movies');
+        return redirect('dashboard');
+    }
+
+    public function destroy()
+    {
+        auth()->logout();
+
+        return redirect("/");
     }
 }
