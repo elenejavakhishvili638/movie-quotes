@@ -3,7 +3,7 @@
     <div class="w-800 flex flex-col align-start h-screen mt-64">
         <div class="mb-65">
             <a href="{{ route('dashboard') }}"
-                class="bg-trans border-primary border py-4 text-3xl px-6 rounded-md hover:bg-secondary">Back</a>
+                class="bg-trans border-primary border py-4 text-3xl px-6 rounded-md hover:bg-secondary">{{ __('quotes.back') }}</a>
         </div>
         <div class="border p-8">
             <form class="flex flex-col gap-6" method="POST" action="{{ route('quote.store') }}"
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <button type="submit"
-                    class="bg-trans border-primary border py-4 text-3xl px-6 rounded-md hover:bg-secondary">Create</button>
+                    class="bg-trans border-primary border py-4 text-3xl px-6 rounded-md hover:bg-secondary">{{ __('quotes.create') }}</button>
             </form>
         </div>
 

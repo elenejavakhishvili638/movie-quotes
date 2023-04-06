@@ -3,7 +3,7 @@
     <div class="w-800 flex flex-col gap-16">
         <div class="">
             <a href="{{ route('movies.show') }}"
-                class="bg-trans border-primary border py-4 text-3xl px-6 rounded-md hover:bg-secondary">Back</a>
+                class="bg-trans border-primary border py-4 text-3xl px-6 rounded-md hover:bg-secondary">{{ __('movies.back') }}</a>
         </div>
         {{-- <div class="flex gap-11 w-screen items-center justify-center"> </div> --}}
         <div class="border p-8">
@@ -19,7 +19,7 @@
                     <p class="text-red-500 text-2xl mt-2"> {{ $message }}</p>
                 @enderror
                 <button class="bg-trans border-primary border py-4 text-3xl px-6 rounded-md hover:bg-secondary">
-                    Update
+                    {{ __('movies.update') }}
                 </button>
             </form>
         </div>

@@ -7,6 +7,7 @@
 
 use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\Admin\QuoteController as AdminQuoteController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Session\AuthController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\QuoteController;
@@ -23,18 +24,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [QuoteController::class, 'get']);
-Route::get('movie/{movie}', [MovieController::class, 'get'])->name('movie.get');
+Route::post('/lang/{lang}', [LanguageController::class, 'switchLang'])->name('setLanguage');
+
+Route::get('/', [QuoteController::class, 'get'])->middleware([Language::class]);
+Route::get('movie/{movie}', [MovieController::class, 'get'])->middleware([Language::class])->name('movie.get');
 
 
-Route::get('login', [AuthController::class, 'create']);
-Route::post('login', [AuthController::class, 'login']);
-Route::post('logout', [AuthController::class, 'logout'])->middleware('auth');
+Route::get('login', [AuthController::class, 'create'])->middleware([Language::class]);
+Route::post('login', [AuthController::class, 'login'])->middleware([Language::class]);
+Route::post('logout', [AuthController::class, 'logout'])->middleware([Language::class])->middleware('auth');
 
 
 
-Route::middleware(['can:admin'])->group(function () {
-    Route::view('dashboard', 'dashboard')->name('dashboard');
+Route::middleware([Language::class, 'can:admin'])->group(function () {
+    Route::view('dashboard', 'dashboard')->name('dashboard')->middleware([Language::class]);
 
     Route::get('admin/movies', [AdminMovieController::class, 'index'])->name('movies.show');
 
