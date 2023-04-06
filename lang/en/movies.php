@@ -5,5 +5,7 @@ return [
     "create" => "Create",
     "edit" => "Edit",
     "delete" => "Delete",
-    "update" => "Update"
+    "update" => "Update",
+    "title_en" => "Title_en",
+    "title_ka" => "Title_ka"
 ];

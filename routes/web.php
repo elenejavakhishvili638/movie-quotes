@@ -36,27 +36,27 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware([Language::
 
 
 
-Route::middleware([Language::class, 'can:admin'])->group(function () {
+Route::prefix('admin')->middleware([Language::class, 'can:admin'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard')->middleware([Language::class]);
 
-    Route::get('admin/movies', [AdminMovieController::class, 'index'])->name('movies.show');
+    Route::get('movies', [AdminMovieController::class, 'index'])->name('movies.show');
 
-    Route::delete('admin/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destroy');
+    Route::delete('movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destroy');
 
-    Route::get('admin/movie/create', [AdminMovieController::class, 'create'])->name('movie.create');
-    Route::post('admin/movie', [AdminMovieController::class, 'store'])->name('movie.store');
+    Route::get('movie/create', [AdminMovieController::class, 'create'])->name('movie.create');
+    Route::post('movie', [AdminMovieController::class, 'store'])->name('movie.store');
 
-    Route::get('admin/movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movie.edit');
-    Route::patch('admin/movies/{movie}', [AdminMovieController::class, 'update'])->name('movie.update');
+    Route::get('movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movie.edit');
+    Route::patch('movies/{movie}', [AdminMovieController::class, 'update'])->name('movie.update');
 
 
-    Route::get('admin/quotes', [AdminQuoteController::class, 'index'])->name('quotes.show');
+    Route::get('quotes', [AdminQuoteController::class, 'index'])->name('quotes.show');
 
-    Route::delete('admin/quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quote.destroy');
+    Route::delete('quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quote.destroy');
 
-    Route::get('admin/quote/create', [AdminQuoteController::class, 'create'])->name('quote.create');
-    Route::post('admin/quote', [AdminQuoteController::class, 'store'])->name('quote.store');
+    Route::get('quote/create', [AdminQuoteController::class, 'create'])->name('quote.create');
+    Route::post('quote', [AdminQuoteController::class, 'store'])->name('quote.store');
 
-    Route::get('admin/quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quote.edit');
-    Route::patch('admin/quotes/{quote}', [AdminQuoteController::class, 'update'])->name('quote.update');
+    Route::get('quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quote.edit');
+    Route::patch('quotes/{quote}', [AdminQuoteController::class, 'update'])->name('quote.update');
 });

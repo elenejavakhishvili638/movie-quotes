@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreMovieRequest;
-use App\Http\Requests\UpdateMovieRequest;
+use App\Http\Requests\MovieRequest;
 use App\Models\Movie;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -30,11 +29,18 @@ class MovieController extends Controller
         return view('admin.movies.create');
     }
 
-    public function store(StoreMovieRequest $request): RedirectResponse
+    public function store(MovieRequest $request): RedirectResponse
     {
         $attributes = $request->validated();
 
-        Movie::create($attributes);
+        // Movie::create($attributes);
+
+
+        $newsItem = new Movie;
+
+        $newsItem->setTranslation('title', 'en', $attributes['title']['en'])
+            ->setTranslation('title', 'ka', $attributes['title']['ka'])
+            ->save();
 
         return redirect()->route('movies.show');
     }
@@ -45,11 +51,13 @@ class MovieController extends Controller
         return view('admin.movies.edit', ['movie' => $movie]);
     }
 
-    public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
+    public function update(MovieRequest $request, Movie $movie): RedirectResponse
     {
         $attributes = $request->validated();
 
-        $movie->update($attributes);
+        $movie->setTranslation('title', 'en', $attributes['title']['en'])
+            ->setTranslation('title', 'ka', $attributes['title']['ka'])
+            ->save();
 
         return redirect()->route('movies.show');
     }
