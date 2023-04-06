@@ -26,6 +26,7 @@ module.exports = {
       '18': '18px',
       '6': '24px',
       '8': '32px',
+      '15': '15px',
     },
     colors: {
       'blue': '#1fb6ff',

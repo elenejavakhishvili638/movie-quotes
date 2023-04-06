@@ -46,7 +46,7 @@
                             name="movie_id" id="movie_id">
                             @foreach ($movies as $movie)
                                 <option class="text-xs " value="{{ $movie->id }}"
-                                    {{ old('movie') == $movie->id ? 'selected' : '' }}>
+                                    {{ old('movie_id', $quote->movie_id) == $movie->id ? 'selected' : '' }}>
                                     {{ ucwords($movie->title) }}
                                 </option>
                             @endforeach
