@@ -33,11 +33,21 @@ class QuoteController extends Controller
     {
         // $path = request()->file('image')->store('images');
         // return "done:" . $path;
+
+
         $attributes = $request->validated();
 
-        $attributes['image'] = request()->file('image')->store('images');
 
-        Quote::create($attributes);
+        $attributes['image'] = request()->file('image')->store('images');
+        // $attributes['movie_id'] = request('movie_id');
+
+        $quotes = new Quote;
+
+        $quotes->setTranslation('body', 'en', $attributes['body']['en'])
+            ->setTranslation('body', 'ka', $attributes['body']['ka'])
+            ->setAttribute('image', $attributes['image'])
+            ->setAttribute('movie_id', $attributes['movie_id'])
+            ->save();
 
         return redirect()->route('quotes.show');
     }
@@ -64,13 +74,17 @@ class QuoteController extends Controller
 
         $attributes = $request->validated();
 
-        if ($request->hasFile('iamge')) {
-
+        if ($request->hasFile('image')) {
             $attributes['image'] = request()->file('image')->store('images');
         }
 
 
-        $quote->update($attributes);
+        // $quote->update($attributes);
+        $quote->setTranslation('body', 'en', $attributes['body']['en'])
+            ->setTranslation('body', 'ka', $attributes['body']['ka'])
+            // ->setAttribute('image', $attributes['image'])
+            ->setAttribute('movie_id', $attributes['movie_id'])
+            ->save();
 
         return redirect()->route('quotes.show');
     }

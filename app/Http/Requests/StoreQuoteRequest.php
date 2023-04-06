@@ -24,10 +24,19 @@ class StoreQuoteRequest extends FormRequest
     {
 
         return [
-            'body' => 'required',
+            // 'body' => 'required',
             'image' =>  ['required', 'image'],
-            'movie_id' => ['required', Rule::exists('movies', 'id')]
-            // 'published_at' => 'required'
+            'movie_id' => ['required', Rule::exists('movies', 'id')],
+            'body.en' => [
+                'required',
+                // 'unique:quotes,body->en',
+                'regex:/^[a-zA-Z\s]*$/',
+            ],
+            'body.ka' => [
+                'required',
+                // 'unique:quotes,body->ka',
+                'regex:/^[\p{Georgian}\s]*$/u',
+            ]
         ];
     }
 }

@@ -28,7 +28,7 @@ class AuthController extends Controller
             throw ValidationException::withMessages(['email' => 'Your provided credentials could not be verified']);
         }
 
-        return redirect('dashboard');
+        return redirect()->route('dashboard');
     }
 
     public function logout(): RedirectResponse

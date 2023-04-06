@@ -26,6 +26,7 @@ module.exports = {
       '18': '18px',
       '6': '24px',
       '8': '32px',
+      '15': '15px',
     },
     colors: {
       'blue': '#1fb6ff',
@@ -50,7 +51,8 @@ module.exports = {
       'brown': '#A9907E',
       'light': "#D5B4B4",
       'trans': "#F5EBEB",
-      'pink': "#E4D0D0"
+      'pink': "#E4D0D0",
+      'white': '#FFFFFF',
     },
     extend: {
       height: {
