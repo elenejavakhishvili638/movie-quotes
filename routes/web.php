@@ -34,7 +34,7 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware('auth');
 
 
 Route::middleware(['can:admin'])->group(function () {
-    Route::view('dashboard', 'dashboard');
+    Route::view('dashboard', 'dashboard')->name('dashboard');
 
     Route::get('admin/movies', [AdminMovieController::class, 'index'])->name('movies.show');
 

@@ -49,7 +49,8 @@ module.exports = {
       'secondary': '#D5B4B4',
       'brown': '#A9907E',
       'light': "#D5B4B4",
-      'trans': "#F5EBEB"
+      'trans': "#F5EBEB",
+      'pink': "#E4D0D0"
     },
     extend: {
       height: {

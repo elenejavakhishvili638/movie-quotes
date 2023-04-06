@@ -64,7 +64,11 @@ class QuoteController extends Controller
 
         $attributes = $request->validated();
 
-        $attributes['image'] = request()->file('image')->store('images');
+        if ($request->hasFile('iamge')) {
+
+            $attributes['image'] = request()->file('image')->store('images');
+        }
+
 
         $quote->update($attributes);
 
