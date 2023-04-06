@@ -33,12 +33,9 @@ class MovieController extends Controller
     {
         $attributes = $request->validated();
 
-        // Movie::create($attributes);
+        $movies = new Movie;
 
-
-        $newsItem = new Movie;
-
-        $newsItem->setTranslation('title', 'en', $attributes['title']['en'])
+        $movies->setTranslation('title', 'en', $attributes['title']['en'])
             ->setTranslation('title', 'ka', $attributes['title']['ka'])
             ->save();
 

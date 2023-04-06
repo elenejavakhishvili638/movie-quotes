@@ -16,12 +16,12 @@
                     </div>
                     {{-- <img class="border h-14 w-14" src="{{ $quote->image }}" /> --}}
                 </div>
-                <div class="w-1/4 p-8 text-center bg-trans border-l">
+                <div class="w-1/4 p-8 text-center flex justify-center items-center bg-trans border-l">
                     <a href="{{ route('quote.edit', ['quote' => $quote]) }}"
                         class="text-2xl hover:text-blue-600">{{ __('quotes.edit') }}
                     </a>
                 </div>
-                <div class="w-1/4 p-8 text-center bg-trans border-l">
+                <div class="w-1/4 p-8 text-center flex justify-center items-center bg-trans border-l">
 
                     <form method="POST" action="{{ route('quote.destroy', ['quote' => $quote->id]) }}}">
                         @csrf

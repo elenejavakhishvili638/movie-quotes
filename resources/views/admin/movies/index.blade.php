@@ -13,12 +13,12 @@
                         {{ ucwords($movie->title) }}
                     </p>
                 </div>
-                <div class="w-1/4 p-8 text-center bg-trans border-l">
+                <div class="w-1/4 p-8 text-center flex justify-center items-center bg-trans border-l">
                     <a href="{{ route('movie.edit', ['movie' => $movie]) }}"
                         class="text-2xl  hover:text-blue-600">{{ __('movies.edit') }}
                     </a>
                 </div>
-                <div class="w-1/4 p-8 text-center bg-trans border-l">
+                <div class="w-1/4 p-8 text-center flex justify-center items-center bg-trans border-l">
 
                     <form method="POST" action="{{ route('movie.destroy', ['movie' => $movie->id]) }}">
                         @csrf

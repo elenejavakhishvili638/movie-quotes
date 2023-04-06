@@ -11,20 +11,30 @@
                 enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
-                <div class="flex flex-col">
+                <div class="flex flex-col gap-6">
 
-                    <label class="text-3xl mb-2 " for="{{ $quote->body }}">Quote En
+                    <label class="text-3xl mb-2" for="{{ $quote->body }}">{{ __('quotes.quote_en') }}
                     </label>
                     <input
-                        class="mb-6 flex w-full border-0 p-5 text-gray-900  placeholder:text-gray-400 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6 focus:outline-none"
-                        id="{{ $quote->body }}" name="body" value="{{ old('body', $quote->body) }}" />
-                    @error('body')
+                        class="mb-6 flex w-full border-0 p-5 text-gray-900  placeholder:text-gray-400 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-primary sm:text-2xl sm:leading-6 focus:outline-none"
+                        id="{{ $quote->body }}" name="body[en]"
+                        value="{{ old('body.en', $quote->getTranslation('body', 'en')) }}" />
+                    @error('body.en')
+                        <p class="text-red-500 text-2xl mt-2"> {{ $message }}</p>
+                    @enderror
+                    <label class="text-3xl mb-2 " for="{{ $quote->body }}">{{ __('quotes.quote_ka') }}
+                    </label>
+                    <input
+                        class="mb-6 flex w-full border-0 p-5 text-gray-900  placeholder:text-gray-400 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-primary sm:text-2xl sm:leading-6 focus:outline-none"
+                        id="{{ $quote->body }}" name="body[ka]"
+                        value="{{ old('body.ka', $quote->getTranslation('body', 'ka')) }}" />
+                    @error('body.ka')
                         <p class="text-red-500 text-2xl mt-2"> {{ $message }}</p>
                     @enderror
                 </div>
                 <div class="flex justify-between">
                     <div class="flex flex-col ">
-                        <label class="text-3xl mb-4" for="image">Image</label>
+                        <label class="text-3xl mb-4" for="image">{{ __('quotes.image') }}</label>
                         <div class="flex items-center">
                             <input
                                 class="mb-4 flex  border-0  text-gray-900  placeholder:text-gray-400 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6 focus:outline-none"
@@ -40,9 +50,9 @@
 
                     </div>
                     <div class="flex flex-col mr-65">
-                        <label class="text-3xl mb-2 " for="movie_id">Movie</label>
+                        <label class="text-3xl mb-4" for="movie_id">{{ __('quotes.movie') }}</label>
                         <select
-                            class="mb-4 flex w-full  border-0 p-5 text-gray-900 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6 focus:outline-none h-16 overflow-scroll"
+                            class="mb-4 flex w-56  border-0 p-5 text-gray-900 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-2xl sm:leading-6 focus:outline-none h-16 overflow-scroll"
                             name="movie_id" id="movie_id">
                             @foreach ($movies as $movie)
                                 <option class="text-xs " value="{{ $movie->id }}"
