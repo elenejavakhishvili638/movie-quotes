@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -17,19 +18,20 @@ class AuthController extends Controller
     }
 
 
-    public function store(LoginRequest $request): RedirectResponse
+    public function login(LoginRequest $request): RedirectResponse
     {
 
         $attributes = $request->validated();
 
         if (!auth()->attempt($attributes)) {
-            abort(Response::HTTP_FORBIDDEN);
+            // abort(Response::HTTP_FORBIDDEN);
+            throw ValidationException::withMessages(['email' => 'Your provided credentials could not be verified']);
         }
 
         return redirect('dashboard');
     }
 
-    public function destroy(): RedirectResponse
+    public function logout(): RedirectResponse
     {
         auth()->logout();
 

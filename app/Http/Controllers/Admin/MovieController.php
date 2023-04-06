@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMovieRequest;
+use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -24,7 +25,7 @@ class MovieController extends Controller
         return back();
     }
 
-    public function create()
+    public function create(): View
     {
         return view('admin.movies.create');
     }
@@ -35,6 +36,21 @@ class MovieController extends Controller
 
         Movie::create($attributes);
 
-        return redirect('admin/movies');
+        return redirect()->route('movies.show');
+    }
+
+
+    public function edit(Movie $movie): View
+    {
+        return view('admin.movies.edit', ['movie' => $movie]);
+    }
+
+    public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
+    {
+        $attributes = $request->validated();
+
+        $movie->update($attributes);
+
+        return redirect()->route('movies.show');
     }
 }

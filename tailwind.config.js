@@ -47,7 +47,10 @@ module.exports = {
     backgroundColor: {
       'primary': '#867070',
       'secondary': '#D5B4B4',
-      'brown': '#A9907E'
+      'brown': '#A9907E',
+      'light': "#D5B4B4",
+      'trans': "#F5EBEB",
+      'pink': "#E4D0D0"
     },
     extend: {
       height: {
@@ -61,6 +64,7 @@ module.exports = {
         '58': '58px',
         '748': '748px',
         '800': '60vw',
+        '1000': '1000px'
     
       }
     },

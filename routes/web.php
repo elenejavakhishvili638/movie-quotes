@@ -28,29 +28,32 @@ Route::get('movie/{movie}', [MovieController::class, 'get'])->name('movie.get');
 
 
 Route::get('login', [AuthController::class, 'create']);
-Route::post('login', [AuthController::class, 'store']);
-Route::post('logout', [AuthController::class, 'destroy'])->middleware('auth');
+Route::post('login', [AuthController::class, 'login']);
+Route::post('logout', [AuthController::class, 'logout'])->middleware('auth');
 
 
 
 Route::middleware(['can:admin'])->group(function () {
-    Route::view('dashboard', 'dashboard');
+    Route::view('dashboard', 'dashboard')->name('dashboard');
 
     Route::get('admin/movies', [AdminMovieController::class, 'index'])->name('movies.show');
 
     Route::delete('admin/movies/{movie}', [AdminMovieController::class, 'destroy'])->name('movie.destroy');
 
     Route::get('admin/movie/create', [AdminMovieController::class, 'create'])->name('movie.create');
-
     Route::post('admin/movie', [AdminMovieController::class, 'store'])->name('movie.store');
 
+    Route::get('admin/movies/{movie}/edit', [AdminMovieController::class, 'edit'])->name('movie.edit');
+    Route::patch('admin/movies/{movie}', [AdminMovieController::class, 'update'])->name('movie.update');
 
 
     Route::get('admin/quotes', [AdminQuoteController::class, 'index'])->name('quotes.show');
 
-    Route::get('admin/quote/create', [AdminQuoteController::class, 'create'])->name('quote.create');
+    Route::delete('admin/quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quote.destroy');
 
+    Route::get('admin/quote/create', [AdminQuoteController::class, 'create'])->name('quote.create');
     Route::post('admin/quote', [AdminQuoteController::class, 'store'])->name('quote.store');
 
-    Route::delete('admin/quotes/{quote}', [AdminQuoteController::class, 'destroy'])->name('quote.destroy');
+    Route::get('admin/quotes/{quote}/edit', [AdminQuoteController::class, 'edit'])->name('quote.edit');
+    Route::patch('admin/quotes/{quote}', [AdminQuoteController::class, 'update'])->name('quote.update');
 });
