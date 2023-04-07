@@ -82,7 +82,7 @@ class QuoteController extends Controller
         // $quote->update($attributes);
         $quote->setTranslation('body', 'en', $attributes['body']['en'])
             ->setTranslation('body', 'ka', $attributes['body']['ka'])
-            // ->setAttribute('image', $attributes['image'])
+            ->setAttribute('image', $attributes['image'])
             ->setAttribute('movie_id', $attributes['movie_id'])
             ->save();
 
