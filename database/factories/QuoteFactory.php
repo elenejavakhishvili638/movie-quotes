@@ -17,10 +17,21 @@ class QuoteFactory extends Factory
      */
     public function definition(): array
     {
+
+        $faker = \Faker\Factory::create('ka_GE');
         return [
+            'body' => [
+                'en' => $faker->sentence(),
+                'ka' => $faker->realText(10),
+            ],
+            'image' => $this->faker->word(),
             'movie_id' => Movie::factory(),
-            'body' => $this->faker->paragraph(),
-            'image' => $this->faker->word()
         ];
+
+        // return [
+        //     'movie_id' => Movie::factory(),
+        //     'body' => $this->faker->paragraph(),
+        //     'image' => $this->faker->word()
+        // ];
     }
 }
