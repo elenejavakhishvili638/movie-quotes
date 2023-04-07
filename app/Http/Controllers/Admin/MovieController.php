@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MovieRequest;
+use App\Http\Requests\StoreMovieRequest;
+use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -29,7 +30,7 @@ class MovieController extends Controller
         return view('admin.movies.create');
     }
 
-    public function store(MovieRequest $request): RedirectResponse
+    public function store(StoreMovieRequest $request): RedirectResponse
     {
         $attributes = $request->validated();
 
@@ -48,7 +49,7 @@ class MovieController extends Controller
         return view('admin.movies.edit', ['movie' => $movie]);
     }
 
-    public function update(MovieRequest $request, Movie $movie): RedirectResponse
+    public function update(UpdateMovieRequest $request, Movie $movie): RedirectResponse
     {
         $attributes = $request->validated();
 
