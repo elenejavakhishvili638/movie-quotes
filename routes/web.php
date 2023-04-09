@@ -37,7 +37,7 @@ Route::post('logout', [AuthController::class, 'logout'])->middleware([Language::
 
 
 Route::prefix('admin')->middleware([Language::class, 'can:admin'])->group(function () {
-    Route::view('dashboard', 'dashboard')->name('dashboard')->middleware([Language::class]);
+    Route::view('dashboard', 'dashboard')->name('dashboard');
 
     Route::get('movies', [AdminMovieController::class, 'index'])->name('movies.show');
 
