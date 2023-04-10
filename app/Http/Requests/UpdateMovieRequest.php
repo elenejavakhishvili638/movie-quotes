@@ -26,12 +26,12 @@ class UpdateMovieRequest extends FormRequest
             'title.en' => [
                 'required',
                 'unique:movies,title->en',
-                'regex:/^[a-zA-Z\s]*$/',
+                'regex:/^[a-zA-Z0-9\s\p{P}]*$/',
             ],
             'title.ka' => [
                 'required',
                 'unique:movies,title->ka',
-                'regex:/^[\p{Georgian}\s]*$/u',
+                'regex:/^[\p{Georgian}0-9\s\p{P}]*$/u',
             ]
         ];
     }
