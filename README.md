@@ -9,6 +9,8 @@ This Laravel project generates random quotes with images and movie names. When c
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [Migrations](#migrations)
+- [Development](#development)
+- [Database diagram](#database-diagram)
 
 ## Prerequisites
 - PHP@7.2 and up

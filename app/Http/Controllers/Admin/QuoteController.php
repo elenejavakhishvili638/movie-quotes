@@ -78,13 +78,17 @@ class QuoteController extends Controller
             $attributes['image'] = request()->file('image')->store('images');
         }
 
-
-        // $quote->update($attributes);
         $quote->setTranslation('body', 'en', $attributes['body']['en'])
             ->setTranslation('body', 'ka', $attributes['body']['ka'])
-            ->setAttribute('image', $attributes['image'])
-            ->setAttribute('movie_id', $attributes['movie_id'])
-            ->save();
+            ->setAttribute('movie_id', $attributes['movie_id']);
+
+        if (isset($attributes['image'])) {
+            $quote->setAttribute('image', $attributes['image']);
+        }
+
+        $quote->save();
+
+
 
         return redirect()->route('quotes.show');
     }

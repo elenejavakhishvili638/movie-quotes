@@ -24,14 +24,8 @@ class QuoteFactory extends Factory
                 'en' => $faker->sentence(),
                 'ka' => $faker->realText(10),
             ],
-            'image' => $this->faker->word(),
+            'image' => $this->faker->imageUrl(),
             'movie_id' => Movie::factory(),
         ];
-
-        // return [
-        //     'movie_id' => Movie::factory(),
-        //     'body' => $this->faker->paragraph(),
-        //     'image' => $this->faker->word()
-        // ];
     }
 }

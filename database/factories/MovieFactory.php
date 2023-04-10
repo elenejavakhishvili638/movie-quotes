@@ -24,9 +24,5 @@ class MovieFactory extends Factory
                 'ka' => $faker->realText(10),
             ],
         ];
-
-        // return [
-        //     'title' => $this->faker->word(),
-        // ];
     }
 }

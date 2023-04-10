@@ -23,9 +23,14 @@ class UpdateQuoteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'body' => 'required',
             'image' =>  ['image'],
-            'movie_id' => ['required', Rule::exists('movies', 'id')]
+            'movie_id' => ['required', Rule::exists('movies', 'id')],
+            'body.en' => [
+                'regex:/^[a-zA-Z0-9\s\p{P}]*$/',
+            ],
+            'body.ka' => [
+                'regex:/^[\p{Georgian}0-9\s\p{P}]*$/u',
+            ]
         ];
     }
 }
