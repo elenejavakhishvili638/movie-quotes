@@ -36,8 +36,10 @@ class MovieController extends Controller
 
         $movies = new Movie;
 
-        $movies->setTranslation('title', 'en', $attributes['title']['en'])
-            ->setTranslation('title', 'ka', $attributes['title']['ka'])
+        $movies->setTranslations('title', [
+            'en' => $attributes['title']['en'],
+            'ka' => $attributes['title']['ka']
+        ])
             ->save();
 
         return redirect()->route('movies.show');
@@ -53,8 +55,10 @@ class MovieController extends Controller
     {
         $attributes = $request->validated();
 
-        $movie->setTranslation('title', 'en', $attributes['title']['en'])
-            ->setTranslation('title', 'ka', $attributes['title']['ka'])
+        $movie->setTranslations('title', [
+            'en' => $attributes['title']['en'],
+            'ka' => $attributes['title']['ka']
+        ])
             ->save();
 
         return redirect()->route('movies.show');

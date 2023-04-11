@@ -43,11 +43,11 @@ class QuoteController extends Controller
 
         $quotes = new Quote;
 
-        $quotes->setTranslation('body', 'en', $attributes['body']['en'])
-            ->setTranslation('body', 'ka', $attributes['body']['ka'])
-            ->setAttribute('image', $attributes['image'])
-            ->setAttribute('movie_id', $attributes['movie_id'])
-            ->save();
+        $quotes->setTranslations('body', [
+            'en' => $attributes['body']['en'],
+            'ka' => $attributes['body']['ka']
+        ])->setAttribute('image', $attributes['image'])
+            ->setAttribute('movie_id', $attributes['movie_id'])->save();
 
         return redirect()->route('quotes.show');
     }
@@ -78,8 +78,10 @@ class QuoteController extends Controller
             $attributes['image'] = request()->file('image')->store('images');
         }
 
-        $quote->setTranslation('body', 'en', $attributes['body']['en'])
-            ->setTranslation('body', 'ka', $attributes['body']['ka'])
+        $quote->setTranslations('body', [
+            'en' => $attributes['body']['en'],
+            'ka' => $attributes['body']['ka']
+        ])
             ->setAttribute('movie_id', $attributes['movie_id']);
 
         if (isset($attributes['image'])) {
