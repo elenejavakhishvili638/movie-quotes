@@ -31,15 +31,10 @@ class QuoteController extends Controller
 
     public function store(StoreQuoteRequest $request)
     {
-        // $path = request()->file('image')->store('images');
-        // return "done:" . $path;
-
-
         $attributes = $request->validated();
 
 
         $attributes['image'] = request()->file('image')->store('images');
-        // $attributes['movie_id'] = request('movie_id');
 
         $quotes = new Quote;
 
@@ -68,9 +63,6 @@ class QuoteController extends Controller
 
     public function update(UpdateQuoteRequest $request, Quote $quote): RedirectResponse
     {
-
-        // ddd(request()->all());
-
 
         $attributes = $request->validated();
 

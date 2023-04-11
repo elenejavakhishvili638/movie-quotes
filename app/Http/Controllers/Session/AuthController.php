@@ -24,7 +24,6 @@ class AuthController extends Controller
         $attributes = $request->validated();
 
         if (!auth()->attempt($attributes)) {
-            // abort(Response::HTTP_FORBIDDEN);
             throw ValidationException::withMessages(['email' => 'Your provided credentials could not be verified']);
         }
 

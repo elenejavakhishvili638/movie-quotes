@@ -1,10 +1,5 @@
 <?php
 
-
-// use App\Http\Controllers\AdminMovieController;
-
-// use App\Http\Controllers\AdminMovieController;
-
 use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 use App\Http\Controllers\Admin\QuoteController as AdminQuoteController;
 use App\Http\Controllers\LanguageController;
