@@ -8,7 +8,7 @@ use Illuminate\View\View;
 
 class MovieController extends Controller
 {
-    public function get(Movie $movie): View
+    public function index(Movie $movie): View
     {
         return view('movies.list-page', [
             'movie' => $movie

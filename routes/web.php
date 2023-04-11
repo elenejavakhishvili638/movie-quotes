@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/lang/{lang}', [LanguageController::class, 'switchLang'])->name('setLanguage');
 
-Route::get('/', [QuoteController::class, 'get'])->middleware([Language::class]);
-Route::get('movie/{movie}', [MovieController::class, 'get'])->middleware([Language::class])->name('movie.get');
+Route::get('/', [QuoteController::class, 'index'])->middleware([Language::class]);
+Route::get('movie/{movie}', [MovieController::class, 'index'])->middleware([Language::class])->name('movie.get');
 
 
 Route::get('login', [AuthController::class, 'create'])->middleware([Language::class]);

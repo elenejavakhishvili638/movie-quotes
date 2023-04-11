@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class QuoteController extends Controller
 {
-    public function get(): View
+    public function index(): View
     {
         $quote = Quote::inRandomOrder()->first();
 
