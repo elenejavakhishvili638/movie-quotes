@@ -36,22 +36,22 @@
                         </div>
                         <x-form.error msg="image" />
                     </div>
-                    <div class="flex flex-col mr-65">
-                        <x-form.label name="movie_id">
-                            {{ __('quotes.movie') }}
-                        </x-form.label>
-                        <select
-                            class="mb-4 flex w-56  border-0 p-5 text-gray-900 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-2xl sm:leading-6 focus:outline-none h-16 overflow-scroll"
-                            name="movie_id" id="movie_id">
-                            @foreach ($movies as $movie)
-                                <option class="text-xs " value="{{ $movie->id }}"
-                                    {{ old('movie_id', $quote->movie_id) == $movie->id ? 'selected' : '' }}>
-                                    {{ ucwords($movie->title) }}
-                                </option>
-                            @endforeach
-                        </select>
-                        <x-form.error msg="movie_id" />
-                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <x-form.label name="movie_id">
+                        {{ __('quotes.movie') }}
+                    </x-form.label>
+                    <select
+                        class="mb-4 flex w-full  border-0 p-5 text-gray-900 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-2xl sm:leading-6 focus:outline-none h-16 overflow-scroll"
+                        name="movie_id" id="movie_id">
+                        @foreach ($movies as $movie)
+                            <option class="text-xs " value="{{ $movie->id }}"
+                                {{ old('movie_id', $quote->movie_id) == $movie->id ? 'selected' : '' }}>
+                                {{ ucwords($movie->title) }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <x-form.error msg="movie_id" />
                 </div>
                 <x-form.button>
                     {{ __('quotes.update') }}

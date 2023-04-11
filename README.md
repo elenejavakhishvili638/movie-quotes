@@ -95,6 +95,6 @@ You can run Laravel's built-in development server by executing:
 ```
 ## Database diagram
 
-![diagram](https://i.ibb.co/yhyWJZx/draw-SQL-random-movies-export-2023-04-07.png)
+![diagram](https://i.ibb.co/9qXSSBM/draw-SQL-random-movies-export-2023-04-11.png)
 
 

@@ -30,22 +30,22 @@
                         <x-form.input id="image" name="image" type="file" />
                         <x-form.error msg="image" />
                     </div>
-                    <div class="flex flex-col">
-                        <x-form.label name="movie_id">
-                            {{ __('quotes.movie') }}
-                        </x-form.label>
-                        <select
-                            class="mb-4 flex  border-0 p-5 text-gray-900  placeholder:text-gray-400 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-primary sm:text-2xl sm:leading-6 focus:outline-none w-64 h-16 overflow-y-auto"
-                            name="movie_id" id="movie_id">
-                            @foreach ($movies as $movie)
-                                <option class="h-4 text-sm" value="{{ $movie->id }}"
-                                    {{ old('movie') == $movie->id ? 'selected' : '' }}>
-                                    {{ ucwords($movie->title) }}
-                                </option>
-                            @endforeach
-                        </select>
-                        <x-form.error msg="movie_id" />
-                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <x-form.label name="movie_id">
+                        {{ __('quotes.movie') }}
+                    </x-form.label>
+                    <select
+                        class="mb-4 flex w-full  border-0 p-5 text-gray-900  placeholder:text-gray-400 placeholder:text-lg focus:ring-2 focus:ring-inset focus:ring-primary sm:text-2xl sm:leading-6 focus:outline-none h-16 overflow-y-auto"
+                        name="movie_id" id="movie_id">
+                        @foreach ($movies as $movie)
+                            <option class="h-4 text-sm" value="{{ $movie->id }}"
+                                {{ old('movie') == $movie->id ? 'selected' : '' }}>
+                                {{ ucwords($movie->title) }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <x-form.error msg="movie_id" />
                 </div>
                 <x-form.button>
                     {{ __('quotes.create') }}

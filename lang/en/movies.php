@@ -6,7 +6,7 @@ return [
     "edit" => "Edit",
     "delete" => "Delete",
     "update" => "Update",
-    "title_en" => "Title_en",
-    "title_ka" => "Title_ka",
+    "title_en" => "Title in English",
+    "title_ka" => "Title in Georgian",
     "no_movies" => "No movies yet."
 ];
